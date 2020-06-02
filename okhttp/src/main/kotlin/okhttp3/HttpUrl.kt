@@ -1337,6 +1337,9 @@ class HttpUrl internal constructor(
               require(host != null) {
                 "$INVALID_HOST: \"${input.substring(pos, portColonOffset)}\""
               }
+              require(!host!!.endsWith(".")) {
+                "$INVALID_HOST: \"$host\""
+              }
               pos = componentDelimiterOffset
               break@authority
             }

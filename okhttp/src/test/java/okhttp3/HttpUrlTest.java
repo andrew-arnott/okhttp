@@ -70,6 +70,11 @@ public final class HttpUrlTest {
     // TODO make exception message escape non-printable characters
   }
 
+  @Test public void parseHostDotSuffix() throws Exception {
+    String host = "www.acme.";
+    assertInvalid("http://" + host + "/", "Invalid URL host: \"www.acme.\"");
+  }
+
   @Test public void parseDoesNotTrimOtherWhitespaceCharacters() throws Exception {
     // Whitespace characters list from Google's Guava team: http://goo.gl/IcR9RD
     // line tabulation
